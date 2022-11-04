@@ -9,8 +9,8 @@ export default class ProductsService {
     return newProduct;
   }
 
-  // async getAll(): Promise<ProductsInterface[]> {
-  //   const products = await this.userModel.getAll();
-  //   return products;
-  // }
+  async getAllProducts(): Promise<ProductsInterface[]> {
+    const products = await this.productModel.getAllProducts();
+    return products;
+  }
 }
