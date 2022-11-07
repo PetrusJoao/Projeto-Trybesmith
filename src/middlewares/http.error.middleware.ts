@@ -5,7 +5,7 @@ const httpErrorMiddleware = (err: Error, req: Request, res: Response, _next: Nex
   console.log('teste');
   console.error('err', err);
   const { status, message } = err as HttpException;
-  res.status(status || 500).json({ message });
+  return res.status(status || 500).json({ message });
 };
 
 export default httpErrorMiddleware;

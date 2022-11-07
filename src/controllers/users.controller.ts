@@ -11,7 +11,7 @@ export default class UsersController {
     const token = createToken(user);
 
     await this.usersService.createUser(user);
-    res.status(201).json({ token });
+    return res.status(201).json({ token });
   };
 
   // async getAllUsers(req: Request, res: Response) {

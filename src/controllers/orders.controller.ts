@@ -6,7 +6,7 @@ export default class OrdersController {
 
   async getAllOrders(_req: Request, res: Response) {
     const orders = await this.ordersService.getAllOrders();
-    res.status(200).json(orders);
+    return res.status(200).json(orders);
   }
 
   //   createOrder = async (req: Request, res: Response) => {

@@ -1,4 +1,4 @@
-import { ResultSetHeader } from 'mysql2';
+import { ResultSetHeader, RowDataPacket } from 'mysql2';
 import mysql from './connection';
 
 import { UserInterface } from '../interfaces';
@@ -15,10 +15,11 @@ export default class ProductModel {
     return { id: insertId, username, classe, level, password };
   }
 
-  // async getAllProducts(): Promise<UserInterface[]> {
-  //   const [products] = await this.connection
-  //     .execute<UserInterface[] & RowDataPacket[]>('SELECT * FROM Trybesmith.Products');
-  //   
-  //   return products;
-  // }
+  async getUser(username: string, password: string): Promise<UserInterface[]> {
+    const [user] = await this.connection
+      .execute<UserInterface[] & RowDataPacket[]>(`SELECT * 
+      FROM Trybesmith.Users WHERE username=? AND password=?`, [username, password]);
+    
+    return user;
+  }
 }
