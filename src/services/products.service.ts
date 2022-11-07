@@ -9,7 +9,7 @@ export default class ProductsService {
     return newProduct;
   }
 
-  async getAllProducts(): Promise<ProductsInterface[]> {
+  async getAllOrders(): Promise<ProductsInterface[]> {
     const products = await this.productModel.getAllProducts();
     return products;
   }
